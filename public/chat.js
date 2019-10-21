@@ -13,6 +13,31 @@ $(function() {
 
     var chatroom = $("#chatroom")
 
+    //btns
+    var create_room = $("#create_your_room_btn")
+    var join_room = $("#join_a_room_btn")
+
+    //section
+    var chat_section = $(".chat_section")
+    var setting_section = $(".setting_container")
+
+    //click on create room or join room, it will show different interface
+    create_room.click(function() {
+        chat_section.show()
+        setting_section.removeClass('d-none')
+        setting_section.hide()
+            // create a room when click on button, emit an event
+        let roomID = Math.random().toString(36).substring(2, 13);
+        socket.emit('create', roomID)
+        console.log(roomID)
+    })
+
+    join_room.click(function() {
+        chat_section.show()
+        setting_section.removeClass('d-none')
+        setting_section.hide()
+
+    })
 
 
     //emit a username
@@ -37,4 +62,7 @@ $(function() {
         console.log(data)
         chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
     })
+
+
+
 });

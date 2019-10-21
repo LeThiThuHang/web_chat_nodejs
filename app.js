@@ -7,10 +7,12 @@ app.set('view engine', 'ejs');
 //middlewares
 app.use(express.static('public'))
 
-//routes
+let roomID = '000'
+    //routes
 app.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', { roomID: roomID })
 })
+
 
 //listen on port 3000
 server = app.listen(3000)
@@ -23,6 +25,13 @@ const io = require("socket.io")(server)
 //socket represent each client connected to our server
 io.on('connection', (socket) => {
     console.log('New user connected')
+
+    //create a room 
+    socket.on('create', function(room) {
+        socket.join(room);
+        console.log(room);
+        roomID = room;
+    });
 
     //default username
     socket.username = "Anonymous"
