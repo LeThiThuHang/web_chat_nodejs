@@ -1,6 +1,10 @@
+body {
+    background-color: #3c9d9b;
+}
+
 .row1_welcome {
     font-family: 'Fascinate Inline', cursive;
-    color: blue;
+    color: #394a6d;
 }
 
 .row2_changeusername {
@@ -11,8 +15,11 @@
 
 .row3_chatbox {
     height: 60vh;
-    background-color: aquamarine;
     margin-top: 1rem;
+}
+
+#chatroom {
+    background-color: #52de97;
 }
 
 .row4_chatsend {
@@ -25,8 +32,4 @@
 
 /*for the rest as desktop*/
 
-@media (min-width: 576px) {
-    .row1_welcome {
-        color: red;
-    }
-}
+@media (min-width: 576px) {}
