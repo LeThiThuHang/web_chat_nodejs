@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--  Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700&display=swap" rel="stylesheet">
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- adding stylesheet style.css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!--  adding the chat socket -->
+    <script src=”https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js "> </script> <title>Web Chat</title>
+</head>
+
+<body>
+    <div class='container'>
+        <!-- first row -->
+        <div class='row justify-content-center text-center row1_welcome'>
+            <div class='col-12 col-sm-6'>
+                <h1>Welcome to the awesome chat!</h1>
+            </div>
+        </div>
+
+        <!-- second row -->
+        <div class='row justify-content-center justify-content-sm-start row2_changeusername'>
+            <div class='col-4 col-sm-2'>
+                <p>Change username</p>
+            </div>
+
+            <div class='col-6 col-sm-4'>
+                <input type=" text " class=" form-control " placeholder=" fill in your new username " aria-label=" Username " aria-describedby=" basic-addon1 ">
+            </div>
+
+        </div>
+
+        <!-- third row -->
+        <div class='row justify-content-center row3_chatbox'>
+            <div class='col-10 col-sm-9 bg-dark'>
+                
+            </div>
+
+        </div>
+
+        <!-- fourth row -->
+        <div class='row justify-content-center row4_chatsend'>
+            <div class='col-8 col-sm-7'>
+                <input type=" text " class=" form-control " placeholder=" your awesome messesage " aria-label=" Username " aria-describedby=" basic-addon1 ">
+            </div>
+
+            <div class='col-2 col-sm-2'>
+                    <button type=" button " class=" btn btn-success ">Send</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src=" http://code.jquery.com/jquery-latest.min.js "></script>
+    <script src=" chat.js "></script>
+
+    </body>
+
+</html>

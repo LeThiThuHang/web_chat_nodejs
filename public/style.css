@@ -1,0 +1,32 @@
+.row1_welcome {
+    font-family: 'Fascinate Inline', cursive;
+    color: blue;
+}
+
+.row2_changeusername {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.row3_chatbox {
+    height: 60vh;
+    background-color: aquamarine;
+    margin-top: 1rem;
+}
+
+.row4_chatsend {
+    margin-top: 1rem;
+}
+
+
+/* the default is 576 and under: which is for most of the phones */
+
+
+/*for the rest as desktop*/
+
+@media (min-width: 576px) {
+    .row1_welcome {
+        color: red;
+    }
+}
