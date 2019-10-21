@@ -20,6 +20,29 @@ server = app.listen(3000)
 const io = require("socket.io")(server)
 
 //listen on every connection
+//socket represent each client connected to our server
 io.on('connection', (socket) => {
     console.log('New user connected')
+
+    //default username
+    socket.username = "Anonymous"
+
+    //listen on change username
+    socket.on('change_username', (data) => {
+        socket.username = data.username
+    })
+
+    socket.on('new_message', (data) => {
+        console.log('back end emit new message')
+            //backend get the new message from client with the details of who sending
+            //and then emit back to the front end
+            //broadcast the new message to sockets ( represent all sockets)
+        io.sockets.emit('new_message', {
+            message: data.message,
+            username: socket.username
+        })
+
+    })
+
+
 })

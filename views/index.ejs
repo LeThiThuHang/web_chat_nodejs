@@ -15,7 +15,9 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 
     <!--  adding the chat socket -->
-    <script src=”https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js "> </script> <title>Web Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js">
+    </script>
+    <title>Web Chat</title>
 </head>
 
 <body>
@@ -30,19 +32,21 @@
         <!-- second row -->
         <div class='row justify-content-center justify-content-sm-start row2_changeusername'>
             <div class='col-4 col-sm-2'>
-                <p>Change username</p>
+                <button type="button" class=" btn btn-success " id='send_username'>Change username</button>
             </div>
 
             <div class='col-6 col-sm-4'>
-                <input type=" text " class=" form-control " placeholder=" fill in your new username " aria-label=" Username " aria-describedby=" basic-addon1 ">
+                <input id="username" type=" text " class=" form-control " placeholder=" fill in your new username " aria-label=" Username " aria-describedby=" basic-addon1 ">
             </div>
 
         </div>
 
         <!-- third row -->
         <div class='row justify-content-center row3_chatbox'>
-            <div class='col-10 col-sm-9 bg-dark'>
-                
+            <div class='col-10 col-sm-9 bg-light' id="chatroom">
+                <p class='message'>User 1: Hello</p>
+                <p class='message'>User 2: Hi</p>
+
             </div>
 
         </div>
@@ -50,11 +54,11 @@
         <!-- fourth row -->
         <div class='row justify-content-center row4_chatsend'>
             <div class='col-8 col-sm-7'>
-                <input type=" text " class=" form-control " placeholder=" your awesome messesage " aria-label=" Username " aria-describedby=" basic-addon1 ">
+                <input id="message" type=" text " class=" form-control " placeholder=" your awesome messesage " aria-label=" Username " aria-describedby=" basic-addon1 ">
             </div>
 
             <div class='col-2 col-sm-2'>
-                    <button type=" button " class=" btn btn-success ">Send</button>
+                <button type=" button " class=" btn btn-success " id='send_message'>Send</button>
             </div>
 
         </div>
@@ -62,8 +66,8 @@
     </div>
 
     <script src=" http://code.jquery.com/jquery-latest.min.js "></script>
-    <script src=" chat.js "></script>
+    <script src="chat.js "></script>
 
-    </body>
+</body>
 
 </html>
