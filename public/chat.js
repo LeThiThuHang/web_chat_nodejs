@@ -44,6 +44,9 @@ $(function() {
         // display the room ID 
         room_id_container.empty();
         room_id_container.append('<h2>Your roomID is ' + roomID + '</h2>')
+
+        //change the variable room_id
+        room_id = roomID
     })
 
     join_room.click(function() {
@@ -56,8 +59,8 @@ $(function() {
         //read the roomID from the input
         room_id = roomID.val()
 
-        //join a room when click on button, emit an event
-        socket.join(room_id)
+        //join a room when click on button, emit an event subscribe so backend will listen to it and join the room
+        socket.emit('join_room', {room_id: room_id})
 
     })
 
@@ -75,6 +78,7 @@ $(function() {
     send_message.click(function() {
         console.log(message.val())
             //passing the username and the roomID to the backend
+        console.log(room_id)
         socket.emit("new_message", { message: message.val(), roomID: room_id })
 
         //clear the message after submit

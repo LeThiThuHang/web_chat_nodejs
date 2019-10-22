@@ -44,9 +44,10 @@ io.on('connection', (socket) => {
         socket.username = data.username
     })
 
-
+    //listen on update new message
     socket.on('new_message', (data) => {
         console.log('back end emit new message')
+        console.log(data.roomID)
             //backend get the new message from client with the details of who sending
             //and then emit back to the front end
             //broadcast the new message to sockets ( represent all sockets)
@@ -55,6 +56,13 @@ io.on('connection', (socket) => {
             username: socket.username
         })
 
+    })
+
+    //listen on when users join the room
+    socket.on('join_room', function(data) {
+        console.log('join_room')
+        console.log(data.room_id)
+        socket.join(data.room_id);
     })
 
 
