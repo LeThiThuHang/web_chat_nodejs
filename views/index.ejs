@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Fascinate+Inline&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700&display=swap" rel="stylesheet">
     <!-- bootstrap link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- adding stylesheet style.css -->
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -46,10 +47,13 @@
 
         <div class='container chat_section bg-dark' style="display:none">
             <div class='row justify-content-center'>
-                <div class="col-10" id="room_id_container">
-                    <h2>Your roomID is
-                        <%= roomID %>
-                    </h2>
+                <div class="col-10 d-flex justify-content-around" >
+                    <div id="room_id_container">
+                        <!-- <h4>Your room ID is 000</h4> -->
+                    </div>
+                    <div id='copy_btn_container'>
+                        <!-- <button type="button" class="btn btn-success">Copy the room ID</button> -->
+                    </div>
                 </div>
 
             </div>
@@ -61,7 +65,8 @@
                 </div>
 
                 <div class='col-6 col-sm-4'>
-                    <input id="username" type=" text " class=" form-control " placeholder=" fill in your new username " aria-label=" Username " aria-describedby=" basic-addon1 ">
+                    <input id="username" type=" text " class=" form-control " placeholder=" fill in your new username "
+                        aria-label=" Username " aria-describedby=" basic-addon1 ">
                 </div>
 
             </div>
@@ -79,7 +84,8 @@
             <!-- fourth row -->
             <div class='row justify-content-center row4_chatsend'>
                 <div class='col-8 col-sm-7'>
-                    <input id="message" type=" text " class=" form-control " placeholder=" your awesome messesage " aria-label=" Username " aria-describedby=" basic-addon1 ">
+                    <input id="message" type=" text " class=" form-control " placeholder=" your awesome messesage "
+                        aria-label=" Username " aria-describedby=" basic-addon1 ">
                 </div>
 
                 <div class='col-2 col-sm-2'>

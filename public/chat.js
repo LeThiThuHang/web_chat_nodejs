@@ -18,6 +18,7 @@ $(function() {
     //btns
     var create_room = $("#create_your_room_btn")
     var join_room = $("#join_a_room_btn")
+    let copy_btn_container = $("#copy_btn_container")
 
     //section
     var chat_section = $(".chat_section")
@@ -43,11 +44,38 @@ $(function() {
 
         // display the room ID 
         room_id_container.empty();
-        room_id_container.append('<h2>Your roomID is ' + roomID + '</h2>')
+        copy_btn_container.empty();    
+        room_id_container.append('<h2 id="room_id" >Your roomID is ' + roomID + '</h2>')
+        copy_btn_container.append('<button type="button" class="btn btn-success" >Copy the room ID</button>')
 
         //change the variable room_id
         room_id = roomID
     })
+
+    //copy function
+    copy_btn_container.click(function() {
+
+    let copyhelper = document.createElement("input");
+    document.body.appendChild(copyhelper);
+    copyhelper.value = room_id;
+    copyhelper.select();
+
+        try {
+            let status =  document.execCommand('copy');
+
+            if(!status) {
+                alert("Can't copy text")
+            } else {
+                alert("Copied the text: " + room_id)
+            }
+        } catch(err) {
+            alert('Unable to copy')
+        }
+    
+    document.body.removeChild(copyhelper);
+
+    }) 
+    
 
     join_room.click(function() {
         chat_section.show()
@@ -58,6 +86,10 @@ $(function() {
 
         //read the roomID from the input
         room_id = roomID.val()
+
+        // display the room ID 
+        room_id_container.empty();
+        room_id_container.append('<h2>Welcome to room ' + room_id + '</h2>')
 
         //join a room when click on button, emit an event subscribe so backend will listen to it and join the room
         socket.emit('join_room', {room_id: room_id})
