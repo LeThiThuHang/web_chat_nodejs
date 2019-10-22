@@ -7,8 +7,10 @@ app.set('view engine', 'ejs');
 //middlewares
 app.use(express.static('public'))
 
+
 let roomID = '000'
-    //routes
+
+//routes
 app.get('/', (req, res) => {
     res.render('index', { roomID: roomID })
 })
@@ -27,10 +29,11 @@ io.on('connection', (socket) => {
     console.log('New user connected')
 
     //create a room 
-    socket.on('create', function(room) {
-        socket.join(room);
-        console.log(room);
-        roomID = room;
+    socket.on('create', function(data) {
+        socket.join(data.roomID);
+        console.log(data.roomID);
+        //this is to pass roomID to the index.ejs
+        roomID = data.roomID;
     });
 
     //default username
@@ -41,12 +44,13 @@ io.on('connection', (socket) => {
         socket.username = data.username
     })
 
+
     socket.on('new_message', (data) => {
         console.log('back end emit new message')
             //backend get the new message from client with the details of who sending
             //and then emit back to the front end
             //broadcast the new message to sockets ( represent all sockets)
-        io.sockets.emit('new_message', {
+        io.to(data.roomID).emit('new_message', {
             message: data.message,
             username: socket.username
         })
