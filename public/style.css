@@ -1,14 +1,107 @@
+/*for the rest as desktop*/
+
 body {
-    background-color: #3c9d9b;
+    background-color: #89a3b2;
+    font-family: 'Fascinate Inline', cursive;
 }
+
+
+.setting_container {
+    height: 60vh;
+}
+
+
+.row1_welcome {
+    font-size: 4rem;
+    font-family: 'Fascinate Inline', cursive;
+    color: #394a6d;
+    font-size: 4rem;
+}
+
+#create_your_room_btn {
+    height: 32vh;
+    width: 100%;
+    font-size: 4rem;
+    font-weight: 700;
+    border-radius: 15px;
+    background-color: #3c4245;
+    border:none;
+    color:white;
+}
+
+#join_a_room_btn {
+    height: 25vh;
+    width: 100%;
+    margin-top: 2vh;
+    font-size: 4rem;
+    font-weight: 700;
+    border-radius: 15px;
+    background-color: #3c4245;
+    border:none;
+    color:white;
+}
+
+
+#create_your_room_btn:hover, #join_a_room_btn:hover {
+    background-color: #5f6769;
+
+}
+
+
+#join_a_room_input {
+    width: 100%;
+    height: 5vh;
+    border-radius: 15px;
+}
+
+.row2_changeusername {
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.row3_chatbox {
+    height: 60vh;
+    margin-top: 1rem;
+}
+
+#chatroom {
+    border: 1px solid #3c4245;
+}
+
+.row4_chatsend {
+    margin-top: 1rem;
+}
+
+#send_username, #send_message , #copy_room_btn{
+    background-color: #3c4245;
+    border:none;
+    border-radius:15px;
+    color:white;
+    font-family: 'Fascinate Inline', cursive;
+    padding: 1em;
+    width: 10vw;
+}
+
+#send_username:hover, #send_message:hover , #copy_room_btn:hover {
+    background-color: #5f6769;
+}
+
 
 
 /* styling for setting page */
 
+
+@media screen and (max-width: 567px) {
+
 .setting_container {
-    background-color: green;
     height: 60vh;
     width: 99%;
+}
+
+.row1_welcome {
+    font-family: 'Fascinate Inline', cursive;
+    color: #394a6d;
+    font-size: 2rem;
 }
 
 #create_your_room_btn {
@@ -17,6 +110,9 @@ body {
     font-size: 1.5rem;
     font-weight: 500;
     border-radius: 15px;
+    border:none;
+    background-color: #5e6073;
+    color:white
 }
 
 #join_a_room_btn {
@@ -26,6 +122,17 @@ body {
     font-size: 1.5rem;
     font-weight: 500;
     border-radius: 15px;
+    border:none;
+    background-color: #5e6073;
+    color: white
+}
+
+#create_your_room_btn:hover, #join_a_room_btn:hover {
+    background-color: #5f6769;
+
+}
+#create_your_room_btn:hover, #join_a_room_btn:hover {
+    background-color: #5f6769;
 }
 
 #join_a_room_input {
@@ -34,10 +141,15 @@ body {
     border-radius: 15px;
 }
 
-.row1_welcome {
-    font-family: 'Fascinate Inline', cursive;
-    color: #394a6d;
+#room_id {
+    font-size: 1.5rem;
 }
+
+#room_id_container {
+    width: 40vw;
+    margin-right:1rem
+}
+
 
 .row2_changeusername {
     font-family: 'Open Sans Condensed', sans-serif;
@@ -51,38 +163,38 @@ body {
 }
 
 #chatroom {
-    background-color: #52de97;
+    border: 1px solid #3c4245;
 }
 
 .row4_chatsend {
     margin-top: 1rem;
 }
 
+#send_username, #send_message , #copy_room_btn{
+    background-color: #3c4245;
+    border:none;
+    border-radius:15px;
+    color:white;
+    font-family: 'Fascinate Inline', cursive;
+    padding: 1em;
+    width: 40vw
+}
+
+#send_username:hover, #send_message:hover , #copy_room_btn:hover {
+    background-color: #5f6769;
+}
+
+#message {
+    margin-bottom: 1rem;
+}
+
+}
+
 
 /* the default is 576 and under: which is for most of the phones */
 
 
-/*for the rest as desktop*/
 
-@media (min-width: 576px) {
-    .create_your_room_btn {
-        height: 32vh;
-        width: 80%;
-        font-size: 2rem;
-        font-weight: 700;
-        border-radius: 15px;
-    }
-    .join_a_room_btn {
-        height: 25vh;
-        width: 80%;
-        margin-top: 2vh;
-        font-size: 2rem;
-        font-weight: 700;
-        border-radius: 15px;
-    }
-    .join_a_room_input {
-        width: 80%;
-        height: 5vh;
-        border-radius: 15px;
-    }
-}
+
+
+

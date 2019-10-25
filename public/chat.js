@@ -46,7 +46,7 @@ $(function() {
         room_id_container.empty();
         copy_btn_container.empty();    
         room_id_container.append('<h2 id="room_id" >Your roomID is ' + roomID + '</h2>')
-        copy_btn_container.append('<button type="button" class="btn btn-success" >Copy the room ID</button>')
+        copy_btn_container.append('<button type="button" class="btn btn-success" id ="copy_room_btn">Copy the room ID</button>')
 
         //change the variable room_id
         room_id = roomID
