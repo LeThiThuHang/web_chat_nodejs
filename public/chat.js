@@ -2,8 +2,8 @@
 
 $(function() {
     //make connection
-    /* let socket = io.connect('http://localhost:8000'); */
-    let Socket = io('https://webchatwithnodejs.herokuapp.com/', {transports: ['websocket']})
+    let socket = io.connect('http://localhost:8000'); 
+    /* let socket = io('https://webchatwithnodejs.herokuapp.com/', {transports: ['websocket']}) */
 
     //btns and inputs
     let username = $("#username")
