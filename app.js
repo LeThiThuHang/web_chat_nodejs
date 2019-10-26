@@ -23,10 +23,15 @@ server = app.listen(3000)
 //socket.io instantiation
 const io = require("socket.io")(server)
 
+let room_list = [];
+
 //listen on every connection
 //socket represent each client connected to our server
 io.on('connection', (socket) => {
     console.log('New user connected')
+    //need to put this function right in the connection so new user can load currently existing room ID and check if the room ID exsting when 
+    //...they fill in the room ID in the input field 
+    socket.emit('update_room_list_frontend', {roomlist: room_list})
 
     //create a room 
     socket.on('create', function(data) {
@@ -35,6 +40,13 @@ io.on('connection', (socket) => {
         //this is to pass roomID to the index.ejs
         roomID = data.roomID;
     });
+
+    //listen to the room from the front end and put the room id into the room list
+    socket.on('add_room_to_the_list', function(data) {
+        room_list.push(data.created_roomID)
+        console.log(room_list)
+        console.log(typeof(room_list))
+    })
 
     //default username
     socket.username = "Anonymous"

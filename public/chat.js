@@ -30,6 +30,8 @@ $(function() {
 
     let room_id
 
+    let room_list = []
+
     //click on create room or join room, it will show different interface
     create_room.click(function() {
         chat_section.show()
@@ -41,6 +43,9 @@ $(function() {
         let roomID = Math.random().toString(36).substring(2, 13);
         console.log(roomID)
         socket.emit('create', { roomID: roomID })
+
+        // emit the function to backend so it will record each time the user create a room
+        socket.emit('add_room_to_the_list', {created_roomID: roomID})
 
         // display the room ID 
         room_id_container.empty();
@@ -74,16 +79,36 @@ $(function() {
     
     document.body.removeChild(copyhelper);
 
-    }) 
+    })
+
+    socket.on('update_room_list_frontend', function(data) {
+        console.log('update room in front end')
+        console.log(data)
+        console.log(data['roomlist'])
+        room_list = data['roomlist']
+        console.log(room_list)
+    })
     
     //enable the button when the text in the fill in room ID is filled
     $("#join_a_room_input").keyup(function() {
-        if($(this).val() == '') {
+        let input_value = $(this).val()
+
+        console.log(room_list)
+        console.log(input_value)
+
+        if(input_value == '') {
             $("#join_a_room_btn").prop('disabled',true);
         } else {
-            $("#join_a_room_btn").prop('disabled',false);
+            //check if the room id is existed in the room arrays
+            if ( room_list.includes(input_value) ) {
+                $("#join_a_room_btn").prop('disabled',false);
+            } else {
+                alert('Your room ID is not existing!')
+            }
         }
     })
+
+    
 
     join_room.click(function() {
         chat_section.show()
