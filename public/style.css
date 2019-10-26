@@ -81,7 +81,7 @@ body {
 #chatroom {
     border: 1px solid #3c4245;
     font-family: 'Nunito', serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .row4_chatsend {
@@ -189,6 +189,7 @@ body {
 
 #chatroom {
     border: 1px solid #3c4245;
+    font-size:1rem
 }
 
 .row4_chatsend {

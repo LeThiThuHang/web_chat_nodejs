@@ -143,7 +143,7 @@ $(function() {
 
          // display the room ID 
          room_id_container.empty();
-         room_id_container.append('<h2>Welcome to the common room. Please behave! </h2>')
+         room_id_container.append('<p style="font-size: 1rem">Welcome to the common room.</p>')
 
         socket.emit('join_common_room')
 
