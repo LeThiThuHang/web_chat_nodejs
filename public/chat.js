@@ -76,6 +76,14 @@ $(function() {
 
     }) 
     
+    //enable the button when the text in the fill in room ID is filled
+    $("#join_a_room_input").keyup(function() {
+        if($(this).val() == '') {
+            $("#join_a_room_btn").prop('disabled',true);
+        } else {
+            $("#join_a_room_btn").prop('disabled',false);
+        }
+    })
 
     join_room.click(function() {
         chat_section.show()
