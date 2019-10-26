@@ -2,27 +2,28 @@
 
 $(function() {
     //make connection
-    var socket = io.connect('http://localhost:3000');
+    let socket = io.connect('http://localhost:3000');
 
     //btns and inputs
-    var username = $("#username")
-    var send_username = $("#send_username")
+    let username = $("#username")
+    let send_username = $("#send_username")
 
-    var message = $("#message")
-    var send_message = $("#send_message")
+    let message = $("#message")
+    let send_message = $("#send_message")
 
-    var chatroom = $("#chatroom")
+    let chatroom = $("#chatroom")
 
-    var roomID = $("#join_a_room_input")
+    let roomID = $("#join_a_room_input")
 
     //btns
-    var create_room = $("#create_your_room_btn")
-    var join_room = $("#join_a_room_btn")
+    let create_room = $("#create_your_room_btn")
+    let join_room = $("#join_a_room_btn")
     let copy_btn_container = $("#copy_btn_container")
 
     //section
-    var chat_section = $(".chat_section")
-    var setting_section = $(".setting_container")
+    let chat_section = $(".chat_section")
+    let setting_section = $(".setting_container")
+    let common_room = $(".common_room")
 
     let room_id_container = $("#room_id_container")
 
@@ -36,8 +37,9 @@ $(function() {
     create_room.click(function() {
         chat_section.show()
 
-        setting_section.removeClass('d-none')
+        /* setting_section.removeClass('d-none') */
         setting_section.hide()
+        common_room.hide()
 
         // create a room when click on button, emit an event
         let roomID = Math.random().toString(36).substring(2, 13);
@@ -82,19 +84,19 @@ $(function() {
     })
 
     socket.on('update_room_list_frontend', function(data) {
-        console.log('update room in front end')
+        /* console.log('update room in front end')
         console.log(data)
-        console.log(data['roomlist'])
+        console.log(data['roomlist']) */
         room_list = data['roomlist']
-        console.log(room_list)
+        /* console.log(room_list) */
     })
     
     //enable the button when the text in the fill in room ID is filled
     $("#join_a_room_input").keyup(function() {
         let input_value = $(this).val()
 
-        console.log(room_list)
-        console.log(input_value)
+        /* console.log(room_list)
+        console.log(input_value) */
 
         if(input_value == '') {
             $("#join_a_room_btn").prop('disabled',true);
@@ -112,8 +114,10 @@ $(function() {
 
     join_room.click(function() {
         chat_section.show()
-        setting_section.removeClass('d-none')
+
+        /* setting_section.removeClass('d-none') */
         setting_section.hide()
+        common_room.hide()
 
         //make the button disabled until the users click on fill in the room code
 

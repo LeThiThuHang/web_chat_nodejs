@@ -41,8 +41,21 @@ body {
     color:white;
 }
 
+#common_room_btn {
+    height: 20vh;
+    width: 100%;
+    font-size: 4rem;
+    font-weight: 700;
+    border-radius: 15px;
+    background-color: #3c4245;
+    border:none;
+    color:white;
+}
 
-#create_your_room_btn:hover, #join_a_room_btn:hover {
+
+#create_your_room_btn:hover, #join_a_room_btn:hover, #common_room_btn:hover,
+#join_a_room_btn:disabled,
+#join_a_room_btn[disabled] {
     background-color: #5f6769;
 
 }
@@ -111,7 +124,7 @@ body {
     font-weight: 500;
     border-radius: 15px;
     border:none;
-    background-color: #5e6073;
+    background-color: #3c4245;
     color:white
 }
 
@@ -123,15 +136,24 @@ body {
     font-weight: 500;
     border-radius: 15px;
     border:none;
-    background-color: #5e6073;
+    background-color: #3c4245;
     color: white
 }
 
-#create_your_room_btn:hover, #join_a_room_btn:hover {
-    background-color: #5f6769;
-
+#common_room_btn {
+    height: 18vh;
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 15px;
+    background-color: #3c4245;
+    border:none;
+    color:white;
 }
-#create_your_room_btn:hover, #join_a_room_btn:hover {
+
+#create_your_room_btn:hover, #join_a_room_btn:hover, #common_room_btn:hover,
+#join_a_room_btn:disabled,
+#join_a_room_btn[disabled] {
     background-color: #5f6769;
 }
 
