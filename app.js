@@ -10,6 +10,8 @@ app.use(express.static('public'))
 
 let roomID = '000'
 
+//setting port (https://stackoverflow.com/questions/38874760/why-my-heroku-node-js-app-is-giving-at-error-code-h10-desc-app-crashed-method/38874873)
+let port = process.env.PORT || 8000;
 //routes
 app.get('/', (req, res) => {
     res.render('index', { roomID: roomID })
@@ -17,8 +19,10 @@ app.get('/', (req, res) => {
 
 
 //listen on port 3000
-server = app.listen(3000)
-
+/* server = app.listen(3000) */
+server = app.listen(port, () => {
+    console.log("App is running on port" + port)
+})
 
 //socket.io instantiation
 const io = require("socket.io")(server)
