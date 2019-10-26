@@ -74,11 +74,14 @@ body {
 
 .row3_chatbox {
     height: 60vh;
+    overflow: scroll;
     margin-top: 1rem;
 }
 
 #chatroom {
     border: 1px solid #3c4245;
+    font-family: 'Nunito', serif;
+    font-size: 2rem;
 }
 
 .row4_chatsend {

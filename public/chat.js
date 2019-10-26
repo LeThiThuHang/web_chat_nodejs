@@ -12,6 +12,7 @@ $(function() {
     let send_message = $("#send_message")
 
     let chatroom = $("#chatroom")
+    let chatroom_container = $(".row3_chatbox")
 
     let roomID = $("#join_a_room_input")
 
@@ -140,6 +141,10 @@ $(function() {
         setting_section.hide()
         common_room.hide()
 
+         // display the room ID 
+         room_id_container.empty();
+         room_id_container.append('<h2>Welcome to the common room. Please behave! </h2>')
+
         socket.emit('join_common_room')
 
     })
@@ -175,6 +180,10 @@ $(function() {
     socket.on("new_message", (data) => {
         console.log(data)
         chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
+        
+        //scroll down
+        chatroom_container.scrollTop(chatroom.outerHeight())
+
     })
 
 
