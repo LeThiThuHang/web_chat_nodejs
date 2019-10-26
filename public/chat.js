@@ -19,6 +19,7 @@ $(function() {
     let create_room = $("#create_your_room_btn")
     let join_room = $("#join_a_room_btn")
     let copy_btn_container = $("#copy_btn_container")
+    let join_common_room = $("#common_room_btn")
 
     //section
     let chat_section = $(".chat_section")
@@ -133,6 +134,16 @@ $(function() {
 
     })
 
+    //join a common room 
+    join_common_room.click(function() {
+        chat_section.show()
+        setting_section.hide()
+        common_room.hide()
+
+        socket.emit('join_common_room')
+
+    })
+    
 
     //emit a username
     send_username.click(function() {
@@ -146,9 +157,15 @@ $(function() {
     //emit a message
     send_message.click(function() {
         console.log(message.val())
-            //passing the username and the roomID to the backend
+        //passing the username and the roomID to the backend
         console.log(room_id)
-        socket.emit("new_message", { message: message.val(), roomID: room_id })
+        console.log(room_id == undefined)
+        //if room_id length is NOT 11 meaning that the uers enter a common room, emit it to the common room
+        if (room_id == undefined) {
+            socket.emit("new_message", { message: message.val(), roomID: 'common' })
+        } else {
+            socket.emit("new_message", { message: message.val(), roomID: room_id })
+        }
 
         //clear the message after submit
         message.val("")

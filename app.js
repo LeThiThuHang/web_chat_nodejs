@@ -23,7 +23,7 @@ server = app.listen(3000)
 //socket.io instantiation
 const io = require("socket.io")(server)
 
-let room_list = [];
+let room_list = ['common'];
 
 //listen on every connection
 //socket represent each client connected to our server
@@ -44,8 +44,8 @@ io.on('connection', (socket) => {
     //listen to the room from the front end and put the room id into the room list
     socket.on('add_room_to_the_list', function(data) {
         room_list.push(data.created_roomID)
-        console.log(room_list)
-        console.log(typeof(room_list))
+        /* console.log(room_list)
+        console.log(typeof(room_list)) */
     })
 
     //default username
@@ -75,6 +75,11 @@ io.on('connection', (socket) => {
         console.log('join_room')
         console.log(data.room_id)
         socket.join(data.room_id);
+    })
+
+    //listen on when users join common room
+    socket.on('join_common_room', function(data) {
+        socket.join(room_list[0])
     })
 
 
