@@ -2,7 +2,7 @@
 
 $(function() {
     //make connection
-    let socket = io.connect('http://localhost:3000');
+    let socket = io.connect('http://localhost:8000');
 
     //btns and inputs
     let username = $("#username")
