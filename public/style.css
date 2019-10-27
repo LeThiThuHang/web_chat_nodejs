@@ -15,13 +15,13 @@ body {
     font-size: 4rem;
     font-family: 'Fascinate Inline', cursive;
     color: #394a6d;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 #create_your_room_btn {
     height: 32vh;
     width: 100%;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     border-radius: 15px;
     background-color: #3c4245;
@@ -33,7 +33,7 @@ body {
     height: 25vh;
     width: 100%;
     margin-top: 2vh;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     border-radius: 15px;
     background-color: #3c4245;
@@ -44,7 +44,7 @@ body {
 #common_room_btn {
     height: 20vh;
     width: 100%;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     border-radius: 15px;
     background-color: #3c4245;
